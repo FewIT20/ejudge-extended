@@ -1,0 +1,31 @@
+{  
+  "content_scripts":[  
+     {  
+        "js":[
+           "jquery-3.3.1.min.js",
+           "content.js",
+           "sweetalert2.js",
+           "sweetalert2.min.js"
+        ],
+        "css":[
+            "sweetalert2.min.css",
+            "style.css"
+        ],
+        "matches":[  
+           "https://ejudge.it.kmitl.ac.th/*"
+        ]
+     }
+  ],
+  "manifest_version":2,
+  "name":"<e>Judge",
+  "description":"Add more functionality to <e>Judge grading system.",
+  "version":"0.2.3",
+  "icons":{  
+     "128":"/assets/icon128.png",
+     "16":"/assets/icon16.png",
+     "48":"/assets/icon48.png"
+  },
+  "web_accessible_resources":[  
+     "styles.css"
+  ]
+}
