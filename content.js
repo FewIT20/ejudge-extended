@@ -12,9 +12,14 @@ $( document ).ready(function() {
 
         $('.content-header').append(
             
-            "<div style='padding-top: 10px; padding-bottom: 30px;'>"+
-                "<button id='btn_copy_problem' class='btn btn-info pull-left'><i class='fa fa-copy'></i> Copy ID Problem</button>"+
-            "</div>"
+            "<ul style='text-align: left;padding-top: 0.7em!important;padding-bottom: 0.7em!important;' class='list-inline question-tab'>"+
+                "<li>"+
+                    "<button id='btn_copy_problem' class='btn btn-info pull-left'><i class='fa fa-copy'></i> Copy ID Problem</button>"+
+                "</li>"+
+                "<li>"+
+                    "<button id='btn_copy_restrict_word' class='btn btn-danger pull-left'><i class='fa fa-ban'></i> Copy Restrict word</button>"+
+                "</li>"+
+            "</ul>"
 
         );
 
@@ -37,6 +42,27 @@ $( document ).ready(function() {
                 title: 'Copy problem id : ' + problem_id
             })
             copyToClipboard(document.querySelector('input[name="problem_id"]').value);
+        });
+
+        $('#btn_copy_restrict_word').click(function() {
+            const restrict = document.querySelector('input[name="restricted"]').value;
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+              
+            Toast.fire({
+                icon: 'success',
+                title: 'Copy restrict word : ' + restrict
+            })
+            copyToClipboard(restrict);
         });
     }
     //Problems page
